@@ -4,7 +4,7 @@ import {useEffect,useState} from "react";
 import {usePathname} from "next/navigation";
 import {Menu,X} from "lucide-react";
 import {BrandLogo} from "@/components/brand-logo";
-const links=[["Portfolio","/work"],["About","/about"],["How We Work","/#approach"],["Notebook","/design-ideas"],["Videos","/videos"],["Enquire","/contact"]];
+const links=[["Portfolio","/work"],["Services","/services"],["About","/about"],["How We Work","/#approach"],["Notebook","/design-ideas"],["Videos","/videos"],["Enquire","/contact"]];
 export function SiteHeader(){
  const [open,setOpen]=useState(false),pathname=usePathname(),home=pathname==="/";
  useEffect(()=>setOpen(false),[pathname]);
