@@ -63,3 +63,68 @@ button,input,textarea,select{font:inherit}
 @media(max-width:800px){.container{width:calc(100% - 40px)}.site-header{height:72px;padding-inline:20px}.nav-links{display:none}.mobile-menu{display:block;background:none;border:0;color:inherit}.hero{min-height:700px;height:90svh}.hero-content{padding-bottom:76px}.hero h1{font-size:clamp(55px,15vw,88px)}.section-pad{padding-block:76px}.split,.project-feature{grid-template-columns:1fr}.split{gap:38px}.split-image{height:440px}.service-grid{grid-template-columns:1fr 1fr}.project-image{min-height:400px}.project-copy{min-height:340px}.footer-grid{grid-template-columns:1fr 1fr;gap:35px}.footer-grid>div:first-child{grid-column:1/-1}.gallery-grid{gap:12px}.page-hero{padding:140px 0 65px}}
 @media(max-width:520px){.service-grid,.gallery-grid,.form-grid{grid-template-columns:1fr}.service{min-height:150px}.hero-actions{gap:18px;flex-wrap:wrap}.footer-grid{grid-template-columns:1fr 1fr}.footer-bottom{gap:14px;flex-direction:column}.gallery-card img{aspect-ratio:1.15}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+/* Luxury editorial direction inspired by the supplied Bernard London reference */
+.site-header{height:92px;padding-inline:max(42px,calc((100vw - 1440px)/2));border:0}
+.site-header-overlay{position:absolute;top:0;left:0;right:0;background:transparent;color:#fff}
+.site-header-solid{position:sticky;top:0;background:rgba(244,241,235,.97);color:var(--ink);border-bottom:1px solid var(--line);backdrop-filter:blur(18px)}
+.brand-logo{display:inline-flex;align-items:center;gap:11px;color:var(--ink);text-decoration:none}
+.brand-logo-light{color:#fff}
+.brand-symbol{width:39px;height:39px;flex:none}
+.brand-wordmark{display:flex;flex-direction:column;gap:1px;font-family:Georgia,"Times New Roman",serif;font-size:19px;line-height:.92;letter-spacing:.12em}
+.brand-wordmark small{font-family:Arial,Helvetica,sans-serif;font-size:8px;letter-spacing:.36em;margin-top:6px}
+.site-header .brand-logo{color:inherit}
+.nav-links{gap:clamp(20px,3vw,48px);font-size:11px;letter-spacing:.025em;text-transform:none}
+.nav-links a{font-weight:400;opacity:.86}
+.mobile-menu{color:inherit}
+.mobile-nav{position:absolute;top:92px;left:0;right:0;background:var(--paper);color:var(--ink);padding:28px 24px 34px;display:grid;gap:22px;border-bottom:1px solid var(--line)}
+.mobile-nav a{font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+.hero{height:100svh;min-height:680px;max-height:1100px;align-items:flex-end;background:#625e55}
+.hero:after{display:none}
+.hero-photo{background-image:url("https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2400&q=90");background-position:center 52%;transform:scale(1.015);animation:hero-settle 1.4s cubic-bezier(.2,.75,.25,1) both}
+.hero-shade{position:absolute;inset:0;z-index:0;background:linear-gradient(180deg,rgba(16,15,13,.34) 0%,rgba(16,15,13,.08) 36%,rgba(16,15,13,.54) 100%),linear-gradient(90deg,rgba(16,15,13,.18),transparent 65%)}
+.hero-caption{position:relative;z-index:2;padding-bottom:clamp(62px,8vh,110px);max-width:1440px}
+.hero-kicker{font-size:9px;letter-spacing:.2em;color:rgba(255,255,255,.82)}
+.hero h1{font-size:clamp(48px,6.2vw,88px);line-height:.96;margin:17px 0 24px;max-width:650px;text-transform:uppercase;letter-spacing:.005em}
+.hero-link{display:inline-flex;align-items:center;gap:13px;color:#fff;font-size:9px;letter-spacing:.17em;border-bottom:1px solid rgba(255,255,255,.7);padding:0 0 12px}
+.hero-index{position:absolute;z-index:2;right:max(42px,calc((100vw - 1440px)/2));bottom:44px;color:rgba(255,255,255,.72);font-size:8px;letter-spacing:.17em;display:flex;gap:28px}
+.intro-band{padding:76px 0 82px;background:#e9e4db}
+.intro-band-inner{display:grid;grid-template-columns:.6fr 1.4fr auto;align-items:center;gap:35px}
+.intro-band .serif{font-size:clamp(27px,3vw,43px);line-height:1.08;margin:0}
+.intro-band .eyebrow{white-space:nowrap}
+.services-section{background:#eeeae3}
+.closing-cta{background:#272620;color:#f4f1eb;padding:95px 0}
+.closing-cta-inner{display:flex;align-items:flex-end;justify-content:space-between;gap:35px}
+.closing-cta h2{font-size:clamp(42px,6vw,76px);line-height:.98;margin:18px 0 0}
+.btn-light{display:inline-flex;align-items:center;gap:14px;background:#f4f1eb;color:#24231f;padding:17px 22px;font-size:10px;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+.footer .brand-logo{color:#f4f1eb}
+.footer .brand-symbol{width:36px;height:36px}
+.footer .brand-wordmark{font-size:17px}
+@keyframes hero-settle{from{transform:scale(1.07);opacity:.75}to{transform:scale(1.015);opacity:1}}
+@media(max-width:800px){
+ .site-header{height:76px;padding-inline:22px}
+ .site-header-overlay{position:absolute}
+ .site-header-solid{position:sticky}
+ .brand-symbol{width:34px;height:34px}
+ .brand-wordmark{font-size:17px}
+ .nav-links{display:none}
+ .mobile-menu{display:block}
+ .mobile-nav{top:76px}
+ .hero{height:88svh;min-height:660px}
+ .hero-photo{background-position:57% center}
+ .hero-caption{padding-bottom:90px}
+ .hero h1{font-size:clamp(44px,10vw,70px)}
+ .hero-index{right:20px;bottom:28px;font-size:7px}
+ .intro-band{padding:58px 0}
+ .intro-band-inner{grid-template-columns:1fr;gap:18px}
+ .intro-band .serif{font-size:34px}
+ .closing-cta-inner{align-items:flex-start;flex-direction:column}
+}
+@media(max-width:520px){
+ .hero{height:84svh;min-height:620px}
+ .hero-caption{padding-bottom:92px}
+ .hero h1{font-size:clamp(39px,11vw,56px)}
+ .hero-kicker{font-size:8px}
+ .hero-index{left:20px;right:auto;bottom:25px}
+ .closing-cta{padding:72px 0}
+}
