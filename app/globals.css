@@ -356,3 +356,26 @@ html{scroll-padding-top:96px}body{overflow-x:hidden}a,button{-webkit-tap-highlig
 @keyframes whatsapp-arrive{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 @media(max-width:600px){.WhatsApp-float{right:15px;bottom:15px;min-height:56px;padding:0 17px;font-size:11px}.WhatsApp-float svg{width:23px;height:23px}}
 @media(prefers-reduced-motion:reduce){.hero-photo-image,.WhatsApp-float{animation:none}.WhatsApp-float{transition:none}}
+
+
+/* Motion-forward hero and a more luminous, confident colour treatment */
+:root{--brass:#c5964c;--brand-brass:#d9aa58;--brand-bright:#d6f269}
+.eyebrow{color:#a97831}
+.hero-kicker{color:#f0d39b}
+.hero-photo-image{animation:hero-ken-burns 22s ease-in-out infinite alternate}
+.hero-caption>div{animation:hero-copy-enter 1s .12s cubic-bezier(.16,1,.3,1) both}
+.hero-link{border-color:#e0bd83;color:#fff}
+.hero-link svg{color:#f0c36f;transition:transform .25s ease}
+.hero-link:hover svg{transform:translate(4px,-3px)}
+.hero-shade{background:linear-gradient(180deg,rgba(14,13,11,.3),rgba(14,13,11,.02) 34%,rgba(14,13,11,.64))}
+.intro-band{background:linear-gradient(115deg,#eee9df 0%,#f7f1e5 52%,#e5dac8 100%)}
+.service-no,.project-related-card>span{color:#b47e34}
+.service-home-explore,.service-directory-link{color:#9b6826}
+.three-d-showcase:before{background:radial-gradient(ellipse at 50% 54%,rgba(224,177,99,.24),transparent 58%)}
+.three-d-heading .eyebrow,.portfolio-eyebrow{color:#e1b66f}
+.three-d-heading h2 em,.portfolio-title em{color:#e0b46b}
+.three-d-dots button.active{background:#c18b3c}
+.btn-dark:hover{background:#b47e34;color:#fff}
+@keyframes hero-ken-burns{0%{transform:scale(1.015) translate3d(0,0,0)}100%{transform:scale(1.09) translate3d(-.6%,.4%,0)}}
+@keyframes hero-copy-enter{from{opacity:0;transform:translate3d(0,28px,0)}to{opacity:1;transform:translate3d(0,0,0)}}
+@media(prefers-reduced-motion:reduce){.hero-photo-image,.hero-caption>div{animation:none}}
