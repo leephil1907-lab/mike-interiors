@@ -75,5 +75,5 @@ const ideas=[
     "alt": "Bedroom with a POP ceiling drop and amber cove light, a cluster pendant, an upholstered bed and a pill-shaped mirror"
   }
 ];
-const base="https://mike-interiors.netlify.app/images/projects/thumb/";
+const base="/images/projects/thumb/";
 export default function Ideas(){return <><PageIntro eyebrow="The inspiration edit" title={<>Ideas for living<br/>beautifully.</>} intro="Design references and concepts from the original Mike Interiors collection. These images are inspiration—not a claim that every pictured space is a completed client project."/><section className="section-pad"><div className="container"><div className="ideas-editorial-grid">{ideas.map((idea,index)=><article className={`ideas-editorial-card ideas-card-${index%4}`} key={idea.image}><div className="ideas-image-frame"><Image src={base+idea.image} alt={idea.alt} fill sizes="(max-width:700px) 100vw, 50vw" className="image-cover"/></div><div className="ideas-card-copy"><span className="eyebrow">INSPIRATION / {String(index+1).padStart(2,"0")}</span><h2 className="serif">{idea.title}</h2><p className="body-copy">{idea.description}</p></div></article>)}</div></div></section></>}

@@ -1,0 +1,36 @@
+name: Mirror original Mike Interiors media
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - "public/images/**"
+      - "public/videos/**"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: mirror-original-media
+  cancel-in-progress: false
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Download original project media into public/
+        run: node scripts/mirror-original-media.mjs
+      - name: Commit local media assets
+        run: |
+          if [[ -n "$(git status --porcelain public/images public/videos)" ]]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add public/images public/videos
+            git commit -m "Mirror original Mike Interiors media into repository"
+            git push
+          else
+            echo "All media assets are already mirrored."
+          fi

@@ -200,7 +200,7 @@ button,input,textarea,select{font:inherit}
 @media(max-width:380px){.brand-monogram{width:34px;height:34px}.brand-name{font-size:11px;letter-spacing:.16em}.brand-tagline{font-size:5.5px}}
 
 /* Original Mike Interiors media-led portfolio layout */
-.hero-photo{background-image:url("https://mike-interiors.netlify.app/images/projects/full/tv-wall-tan-gloss.webp");background-position:center 48%}
+.hero-photo{background-image:url("/images/projects/full/tv-wall-tan-gloss.webp");background-position:center 48%}
 .portfolio-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:clamp(18px,2.5vw,34px);align-items:start}
 .portfolio-project{min-width:0;grid-column:span 6}
 .portfolio-project:nth-child(5n+1){grid-column:span 7}

@@ -5,7 +5,7 @@ import {useRef,useState} from "react";
 import {AnimatePresence,motion,useMotionValue,useScroll,useSpring,useTransform} from "framer-motion";
 import {ArrowUpRight,MoveUpRight} from "lucide-react";
 const EASE=[0.16,1,0.3,1] as const;
-const base="https://mike-interiors.netlify.app/images/projects/thumb/";
+const base="/images/projects/thumb/";
 const projects=[
   {
     "id": "01",
