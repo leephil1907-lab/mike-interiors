@@ -23,6 +23,7 @@ export function EditorialPortfolio(){
  const {scrollYProgress}=useScroll({target:sectionRef,offset:["start end","end start"]});
  const ambientY=useTransform(scrollYProgress,[0,1],["-7%","8%"]);
  const headingY=useTransform(scrollYProgress,[0,1],["34px","-28px"]);
+ const imageY=useTransform(scrollYProgress,[0,1],["-3%","3%"]);
  const visible=filter==="All"?projects:projects.filter(p=>p.category===filter);
 
  return <section ref={sectionRef} className="editorial-portfolio" onMouseMove={e=>{const b=e.currentTarget.getBoundingClientRect();mouseX.set(e.clientX-b.left);mouseY.set(e.clientY-b.top);}} onMouseEnter={()=>setPointerInside(true)} onMouseLeave={()=>{setPointerInside(false);setHovered(false);}}>
@@ -45,7 +46,7 @@ export function EditorialPortfolio(){
     <AnimatePresence mode="popLayout">
      {visible.map((project,index)=><motion.article key={project.id} layout className="portfolio-project" initial={{opacity:0,y:65,filter:"blur(8px)"}} whileInView={{opacity:1,y:0,filter:"blur(0px)"}} viewport={{once:true,margin:"-80px"}} exit={{opacity:0,y:-24,filter:"blur(6px)"}} transition={{duration:.85,ease:EASE,layout:{duration:.55,ease:EASE}}} onMouseEnter={()=>setHovered(true)} onMouseLeave={()=>setHovered(false)}>
       <div className="portfolio-image-wrap">
-       <motion.div className="portfolio-image-parallax" initial={{scale:1.08}} whileInView={{scale:1}} viewport={{once:true}} transition={{duration:1.4,ease:EASE}}>
+       <motion.div className="portfolio-image-parallax" style={{y:imageY}} initial={{scale:1.08}} whileInView={{scale:1}} viewport={{once:true}} transition={{duration:1.4,ease:EASE}}>
         <Image src={project.image} alt={project.alt} fill sizes="(max-width: 760px) 100vw, 68vw" className="portfolio-image" priority={false}/>
        </motion.div>
        <div className="portfolio-image-shade"/>
