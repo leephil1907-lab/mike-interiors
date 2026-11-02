@@ -276,3 +276,17 @@ button,input,textarea,select{font:inherit}
 .three-d-play{display:flex;align-items:center;gap:8px;border:0;background:transparent;color:#6e6255;font-size:8px;letter-spacing:.16em;cursor:pointer}
 @media(max-width:700px){.three-d-showcase-inner{width:calc(100% - 36px)}.three-d-heading{display:block}.three-d-heading h2{font-size:clamp(39px,10vw,56px)}.three-d-heading>p{margin-top:17px}.three-d-stage{height:clamp(440px,126vw,590px);perspective:1000px}.three-d-card{width:82%;height:85%;top:3%;margin-left:-41%}.three-d-arrow{width:39px;height:39px;top:auto;bottom:2px}.three-d-prev{left:0}.three-d-next{right:0}.three-d-card-label{right:18px;bottom:28px}.three-d-card-label h3{font-size:32px}.three-d-card-label p{font-size:10px}.three-d-card-number{top:18px}.three-d-controls{margin-top:12px;gap:17px}}
 @media(prefers-reduced-motion:reduce){.three-d-photo{transition:none}.three-d-arrow,.three-d-dots button{transition:none}}
+
+/* Final visual-system polish: focus, navigation feedback and touch behaviour */
+:root{--brand-charcoal:#141312;--brand-ivory:#F5F1EA;--brand-brass:#C6A161;--brand-taupe:#8A7B6C}
+html{scroll-padding-top:96px}body{overflow-x:hidden}a,button{-webkit-tap-highlight-color:transparent}
+:where(a,button,input,textarea,select,[tabindex]):focus-visible{outline:2px solid var(--brand-brass);outline-offset:4px}
+.nav-links a{position:relative;padding:10px 0}.nav-links a:after{content:"";position:absolute;left:0;right:100%;bottom:2px;height:1px;background:currentColor;transition:right .3s cubic-bezier(.16,1,.3,1)}
+.nav-links a:hover:after,.nav-links a[aria-current="page"]:after{right:0}
+.mobile-menu{width:44px;height:44px;display:none;align-items:center;justify-content:center;cursor:pointer}
+.mobile-nav{z-index:40;box-shadow:0 22px 45px rgba(20,19,18,.12)}
+.three-d-stage{touch-action:pan-y;cursor:grab;outline-offset:8px}.three-d-stage:active{cursor:grabbing}.three-d-card{backface-visibility:hidden}
+.three-d-arrow:focus-visible,.three-d-dots button:focus-visible,.three-d-play:focus-visible{outline:2px solid #9a7950;outline-offset:4px}
+@media(max-width:800px){.mobile-menu{display:inline-flex}.site-header{z-index:50}.mobile-nav{max-height:calc(100svh - 76px);overflow:auto}}
+@media(max-width:520px){.three-d-showcase{padding-block:64px 52px}.three-d-stage{height:clamp(420px,118vw,540px)}.three-d-orbit{width:88%;height:90px;bottom:6%}.three-d-card{width:84%;margin-left:-42%}.three-d-card-label h3{font-size:clamp(27px,8vw,34px)}.three-d-controls{gap:12px}.three-d-play{font-size:7px}}
+@media(prefers-reduced-motion:reduce){.nav-links a:after{transition:none}.three-d-stage{cursor:auto}}
