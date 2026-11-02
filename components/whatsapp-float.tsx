@@ -1,0 +1,2 @@
+import {MessageCircle} from "lucide-react";
+export function WhatsAppFloat(){return <a className="WhatsApp-float" href="https://wa.me/2347036206407?text=Hello%20Mike%20Interiors%2C%20I%27d%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener noreferrer" aria-label="Chat with Mike Interiors on WhatsApp"><MessageCircle aria-hidden="true"/><span className="WhatsApp-float-label">Chat with us</span></a>}
