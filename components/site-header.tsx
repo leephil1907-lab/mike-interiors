@@ -4,7 +4,7 @@ import {useState} from "react";
 import {usePathname} from "next/navigation";
 import {Menu,X,ArrowUpRight} from "lucide-react";
 import {BrandLogo} from "@/components/brand-logo";
-const links=[["Portfolio","/work"],["About","/about"],["How We Work","/#approach"],["Notebook","/design-ideas"],["Enquire","/contact"]];
+const links=[["Portfolio","/work"],["About","/about"],["How We Work","/#approach"],["Notebook","/design-ideas"],["Videos","/videos"],["Enquire","/contact"]];
 export function SiteHeader(){
  const [open,setOpen]=useState(false);const pathname=usePathname();const home=pathname==="/";
  return <header className={`site-header ${home?"site-header-overlay":"site-header-solid"}`}>
