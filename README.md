@@ -28,7 +28,7 @@ This repository is configured as a standard Next.js project for Vercel.
 - **Root directory:** repository root
 - **Build command:** automatically detected from `npm run build`
 - **Install command:** automatically detected
-- **Node.js:** 20.x
+- **Node.js:** 24.x
 - **Environment variables:** none required for the current frontend
 
 Connect the GitHub repository `leephil1907-lab/mike-interiors` to the Vercel project. Keep the production branch set to `main`; pushes to other branches should create Preview Deployments.
