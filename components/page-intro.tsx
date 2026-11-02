@@ -1,0 +1,1 @@
+export function PageIntro({eyebrow,title,intro}:{eyebrow:string;title:React.ReactNode;intro:string}){return <section className="page-hero"><div className="container"><div className="eyebrow">{eyebrow}</div><h1 className="serif">{title}</h1><p className="body-copy">{intro}</p></div></section>}
