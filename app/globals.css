@@ -505,3 +505,11 @@ html{scroll-padding-top:96px}body{overflow-x:hidden}a,button{-webkit-tap-highlig
 .footer-social-links a{color:#f5f1ea;border-color:rgba(245,241,234,.28)}
 .footer-social-links a:hover{color:#171713;border-color:#c6a161}
 @media(prefers-reduced-motion:reduce){.social-links a{transition:none}}
+
+
+/* Social account icon links */
+.footer-socials{display:flex;align-items:center;gap:12px;margin-top:22px}
+.footer-socials a{width:42px;height:42px;display:grid;place-items:center;border:1px solid rgba(245,241,234,.3);border-radius:50%;color:#f5f1ea;transition:background .22s,color .22s,border-color .22s,transform .22s}
+.footer-socials a:hover{background:#c6a161;border-color:#c6a161;color:#171713;transform:translateY(-3px)}
+.footer-socials svg{width:19px;height:19px}
+@media(prefers-reduced-motion:reduce){.footer-socials a{transition:none}}
