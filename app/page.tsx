@@ -1,4 +1,5 @@
-import Image from "next/image";\nimport Link from "next/link";
+import Image from "next/image";
+import Link from "next/link";
 import {ArrowUpRight,ArrowRight} from "lucide-react";
 import {Reveal} from "@/components/reveal";
 import {ThreeDProjectCarousel} from "@/components/three-d-project-carousel";
