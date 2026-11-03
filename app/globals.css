@@ -495,3 +495,13 @@ html{scroll-padding-top:96px}body{overflow-x:hidden}a,button{-webkit-tap-highlig
  .home-gallery-footer{align-items:flex-start;flex-direction:column}
 }
 @media(prefers-reduced-motion:reduce){.home-gallery-image img,.home-gallery-meta>svg{transition:none}}
+
+/* Brand social links — icon-only, accessible and touch-friendly */
+.social-links{display:flex;align-items:center;gap:12px}
+.social-links a{width:42px;height:42px;display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(198,161,97,.48);border-radius:50%;color:inherit;transition:background .22s,color .22s,border-color .22s,transform .22s}
+.social-links a:hover{background:#c6a161;color:#171713;border-color:#c6a161;transform:translateY(-3px)}
+.social-links svg{width:19px;height:19px;display:block}
+.footer-social-links{margin-top:22px}
+.footer-social-links a{color:#f5f1ea;border-color:rgba(245,241,234,.28)}
+.footer-social-links a:hover{color:#171713;border-color:#c6a161}
+@media(prefers-reduced-motion:reduce){.social-links a{transition:none}}
