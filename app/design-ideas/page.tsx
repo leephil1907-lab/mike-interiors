@@ -1,3 +1,4 @@
+import { pageOg } from "@/lib/social";
 import Image from "next/image";
 import Link from "next/link";
 import type {Metadata} from "next";
@@ -5,6 +6,7 @@ import {ArrowUpRight} from "lucide-react";
 import {PageIntro} from "@/components/page-intro";
 
 export const metadata:Metadata={
+ ...pageOg({title:"Design Ideas & Inspiration",description:"Interior design concepts and finish inspiration from Mike Interiors in Abraka, Delta State — feature walls, ceilings, wardrobes and styling references.",path:"/design-ideas"}),
  title:"Design Ideas & Inspiration",
  description:"Interior design concepts and finish inspiration from Mike Interiors in Abraka, Delta State — feature walls, ceilings, wardrobes and styling references.",
  alternates:{canonical:"/design-ideas"}

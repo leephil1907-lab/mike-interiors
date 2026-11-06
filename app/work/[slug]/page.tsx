@@ -25,7 +25,21 @@ export async function generateMetadata({params}:Props){
    type: "article",
    title: `${project.title} | Mike Interiors`,
    description: project.description,
-   images: src ? [{ url: src, alt: project.alt }] : undefined
+   // A designed 1200x630 PNG card. The raw source is WebP, which WhatsApp
+   // and Facebook frequently refuse to fetch for link previews.
+   images: [{
+    url: `/og/${project.slug}.png`,
+    width: 1200,
+    height: 630,
+    type: "image/png",
+    alt: project.alt
+   }]
+  },
+  twitter: {
+   card: "summary_large_image",
+   title: `${project.title} | Mike Interiors`,
+   description: project.description,
+   images: [`/og/${project.slug}.png`]
   }
  };
 }

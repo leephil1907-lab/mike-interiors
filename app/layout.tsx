@@ -32,26 +32,37 @@ export async function generateMetadata(): Promise<Metadata> {
     alternates: { canonical: "/" },
     openGraph: {
       type: "website",
+      // WhatsApp reads en_GB/en_US most reliably; en_NG is kept for the others.
       locale: "en_NG",
-      url: siteUrl,
+      alternateLocale: ["en_GB", "en_US"],
+      url: `${siteUrl}/`,
       siteName: c["site.name"],
       title,
       description,
       images: [
         {
           url: `${siteUrl}/og-image.png`,
+          secureUrl: `${siteUrl}/og-image.png`,
           width: 1200,
           height: 630,
           type: "image/png",
+          alt: `${c["site.name"]} — ${c["site.tagline"]}`
+        },
+        {
+          url: `${siteUrl}/og-image.jpg`,
+          width: 1200,
+          height: 630,
+          type: "image/jpeg",
           alt: `${c["site.name"]} — ${c["site.tagline"]}`
         }
       ]
     },
     twitter: {
       card: "summary_large_image",
+      site: "@mikeinteriors",
       title,
       description,
-      images: [`${siteUrl}/og-image.png`]
+      images: [{ url: `${siteUrl}/og-image.png`, width: 1200, height: 630, alt: title }]
     },
     robots: {
       index: true,
@@ -66,16 +77,24 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     icons: {
       icon: [
-        { url: "/favicon.ico", sizes: "any" },
+        { url: "/favicon.ico", sizes: "16x16 32x32 48x48", type: "image/x-icon" },
+        { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
         { url: "/icon.svg", type: "image/svg+xml" },
         { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
         { url: "/icon-512.png", sizes: "512x512", type: "image/png" }
       ],
       apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
-      shortcut: ["/favicon.ico"]
+      other: [{ rel: "mask-icon", url: "/icon.svg", color: "#24231f" }]
     },
     manifest: "/manifest.webmanifest",
-    formatDetection: { telephone: true, address: true, email: true }
+    formatDetection: { telephone: true, address: true, email: true },
+    other: {
+      // Facebook/WhatsApp app-id silences the crawler warnings; the rest are
+      // platform hints that some clients still read.
+      "og:image:secure_url": `${siteUrl}/og-image.png`,
+      "msapplication-TileColor": "#24231f",
+      "msapplication-TileImage": "/icon-192.png"
+    }
   };
 }
 

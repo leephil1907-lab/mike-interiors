@@ -23,7 +23,19 @@ export async function generateMetadata({params}:Props){
   openGraph: {
    title: `${service.title} | Mike Interiors`,
    description: service.summary,
-   images: service.image ? [{ url: service.image, alt: service.alt }] : undefined
+   images: [{
+    url: `/og/${service.slug}.png`,
+    width: 1200,
+    height: 630,
+    type: "image/png",
+    alt: service.alt
+   }]
+  },
+  twitter: {
+   card: "summary_large_image",
+   title: `${service.title} | Mike Interiors`,
+   description: service.summary,
+   images: [`/og/${service.slug}.png`]
   }
  };
 }

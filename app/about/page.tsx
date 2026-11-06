@@ -5,6 +5,7 @@ import { ArrowUpRight } from "lucide-react";
 import { PageIntro } from "@/components/page-intro";
 import { Reveal } from "@/components/reveal";
 import { getContent, lines } from "@/lib/content";
+import { pageOg } from "@/lib/social";
 
 export const revalidate = 300;
 
@@ -12,7 +13,13 @@ export const metadata: Metadata = {
   title: "About Mike Interiors",
   description:
     "Mike Interiors is an interior finishing and styling studio in Abraka, Delta State, working across painting, wall panels, POP ceilings, wardrobes and full interior styling.",
-  alternates: { canonical: "/about" }
+  alternates: { canonical: "/about" },
+  ...pageOg({
+    title: "About Mike Interiors",
+    description:
+      "An interior finishing and styling studio in Abraka, Delta State — painting, wall panels, POP ceilings, wardrobes and full interior styling.",
+    path: "/about"
+  })
 };
 
 const PROCESS = [
