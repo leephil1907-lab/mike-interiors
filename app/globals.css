@@ -779,3 +779,66 @@ html{scroll-padding-top:96px}body{overflow-x:hidden}a,button{-webkit-tap-highlig
 /* Final guard against horizontal page scroll from transformed/absolutely
    positioned decoration. `clip` keeps sticky positioning working. */
 html,body{overflow-x:clip;max-width:100%}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   HEADER / HERO ALIGNMENT FIX
+   The hero's overlay row (location · tagline · "Explore our work") and the
+   slide counter were pinned at 34–48px from the top. The site header is
+   76–104px tall, so all three collided and printed on top of each other.
+   Both now share one baseline that begins below the header.
+   ═══════════════════════════════════════════════════════════════════════ */
+.three-d-showcase.three-d-hero { --hero-top-row: 108px; }        /* header 76px */
+.three-d-hero .three-d-hero-brand { top: var(--hero-top-row); }
+.three-d-hero .three-d-card-number { top: var(--hero-top-row); }
+
+@media (min-width: 801px) {
+  .three-d-showcase.three-d-hero { --hero-top-row: 124px; }      /* header 92px */
+}
+@media (min-width: 1100px) {
+  .three-d-showcase.three-d-hero { --hero-top-row: 140px; }      /* header 104px */
+  /* the overlay row was also crowding the nav: give the link room */
+  .three-d-hero .three-d-hero-brand { gap: 26px; }
+}
+
+/* Keep the row out of the header's hit area on touch devices */
+@media (max-width: 800px) {
+  .three-d-hero .three-d-hero-brand { top: var(--hero-top-row); left: 22px; right: 22px; }
+  .three-d-hero .three-d-card-number { left: 22px; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   FOOTER STRUCTURE FIX
+   Desktop: the 4-item grid was templated for 3 columns, so "Get in touch"
+   dropped to a second row under the brand. It is now a true 4-column grid.
+   Mobile: every column stacked full-width, making the footer enormous.
+   Explore + Services now share a row; brand and contact span both columns.
+   ═══════════════════════════════════════════════════════════════════════ */
+@media (min-width: 1100px) {
+  .footer-grid {
+    grid-template-columns: 1.45fr .62fr .8fr 1fr;
+    gap: clamp(44px, 4.4vw, 76px);
+    align-items: start;
+  }
+  .footer-grid > div:nth-child(4) { grid-column: auto; }
+}
+
+@media (max-width: 900px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 34px 24px; }
+  .footer-grid > div:nth-child(1) { grid-column: 1 / -1; }
+  .footer-grid > div:nth-child(4) { grid-column: 1 / -1; }
+  .footer-blurb { max-width: 520px; }
+  .footer-area { max-width: 420px; }
+  .footer { padding-bottom: 20px; }
+  .footer-cta { padding: 26px 0 22px; gap: 18px; }
+  .footer-grid { padding: 28px 0 22px; }
+  .footer-bottom { padding-top: 18px; padding-bottom: 54px; }
+}
+
+@media (max-width: 420px) {
+  /* was 1fr — a single tall column. Keep the paired columns instead. */
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 26px 18px; }
+  .footer h4 { margin-bottom: 10px; }
+  .footer-links a, .footer-links span { min-height: 40px; font-size: 13px; }
+  .footer-blurb { font-size: 12.5px; line-height: 1.7; }
+  .footer-area { font-size: 11px; }
+}
