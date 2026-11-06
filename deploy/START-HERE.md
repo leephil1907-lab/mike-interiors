@@ -46,7 +46,7 @@ That is the whole trick. Nothing is duplicated.
 
    ```
    NEXT_PUBLIC_SUPABASE_URL        →  https://tsctqrmqdoslblozmtrx.supabase.co
-   NEXT_PUBLIC_SUPABASE_ANON_KEY   →  (copy the anon key from CREDENTIALS.md)
+   NEXT_PUBLIC_SUPABASE_ANON_KEY   →  (Supabase → Settings → API → anon key)
    REVALIDATE_SECRET               →  (run: openssl rand -hex 24)
    ```
 
@@ -82,7 +82,7 @@ Same repo, second service. Do **not** create a new repo.
    ```
    NEXT_PUBLIC_SUPABASE_URL        →  https://tsctqrmqdoslblozmtrx.supabase.co
    NEXT_PUBLIC_SUPABASE_ANON_KEY   →  (same anon key as Step 1)
-   SUPABASE_SERVICE_ROLE_KEY       →  (service role key from CREDENTIALS.md — this one is SECRET)
+   SUPABASE_SERVICE_ROLE_KEY       →  (Supabase → Settings → API → service_role — SECRET)
    NEXT_PUBLIC_SITE_URL            →  (paste the URL you copied in Step 1)
    REVALIDATE_SECRET               →  (exactly the same string as Step 1, paste it)
    ```
@@ -102,8 +102,10 @@ Same repo, second service. Do **not** create a new repo.
 
    ```
    Email:    admin@mikeinteriors.ng
-   Password: Mi-Studio-5ocRfkodqB!
+   Password: (the password you were given separately — never stored in git)
    ```
+
+   Lost it? Supabase → Authentication → Users → reset it.
 
 3. You should see **"Good morning, admin"**
 4. Go to **Site copy** → change any headline → Save
@@ -161,9 +163,9 @@ Values it will ask for:
 | Variable | Website | Admin | Value |
 |---|---|---|---|
 | `NEXT_PUBLIC_SUPABASE_URL` | ✅ | ✅ | `https://tsctqrmqdoslblozmtrx.supabase.co` |
-| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | ✅ | ✅ | from `CREDENTIALS.md` |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | ✅ | ✅ | Supabase → Settings → API |
 | `REVALIDATE_SECRET` | ✅ | ✅ | make one up: `openssl rand -hex 24` → **same on both** |
-| `SUPABASE_SERVICE_ROLE_KEY` | — | ✅ | from `CREDENTIALS.md` (secret) |
+| `SUPABASE_SERVICE_ROLE_KEY` | — | ✅ | Supabase → Settings → API (secret) |
 | `NEXT_PUBLIC_SITE_URL` | — | ✅ | the website URL once it's live |
 | `RESEND_API_KEY` / `ENQUIRY_TO_EMAIL` / `ENQUIRY_FROM` | optional | — | skip for now |
 
