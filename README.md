@@ -90,7 +90,7 @@ structured data together.
 ## Deployment
 
 See **[deploy/DEPLOYMENT.md](deploy/DEPLOYMENT.md)** and
-**[deploy/render.yaml](deploy/render.yaml)**.
+**[render.yaml](render.yaml)**.
 
 Both apps must be **Web Services** (Node), not static sites — they rely on
 server rendering, ISR, middleware and API routes.

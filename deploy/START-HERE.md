@@ -146,10 +146,28 @@ Then **last thing**, so Google and WhatsApp see the right address:
 
 ---
 
-# The shortcut (skips Steps 1–2)
+# The shortcut — do this instead of Steps 1–2  ⭐ recommended
 
-Render → **New +** → **Blueprint** → pick the repo.
-It reads `deploy/render.yaml` and builds **both** services automatically.
-You still have to paste the environment variables in afterwards.
+Render → **New +** → **Blueprint** → pick `leephil1907-lab/mike-interiors`
+→ **Apply**.
 
-Both routes end in the same place. Use whichever you find less stressful.
+Render finds `render.yaml` sitting at the repo root and builds **both**
+services in one go — website from the repo root, studio from `admin/`.
+It then asks you to fill in the secret values below. That is the whole
+deployment.
+
+Values it will ask for:
+
+| Variable | Website | Admin | Value |
+|---|---|---|---|
+| `NEXT_PUBLIC_SUPABASE_URL` | ✅ | ✅ | `https://tsctqrmqdoslblozmtrx.supabase.co` |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | ✅ | ✅ | from `CREDENTIALS.md` |
+| `REVALIDATE_SECRET` | ✅ | ✅ | make one up: `openssl rand -hex 24` → **same on both** |
+| `SUPABASE_SERVICE_ROLE_KEY` | — | ✅ | from `CREDENTIALS.md` (secret) |
+| `NEXT_PUBLIC_SITE_URL` | — | ✅ | the website URL once it's live |
+| `RESEND_API_KEY` / `ENQUIRY_TO_EMAIL` / `ENQUIRY_FROM` | optional | — | skip for now |
+
+Then jump to **Step 3** (log in and test).
+
+Steps 1–2 are still valid if you would rather create the two services by hand.
+Both routes end in exactly the same place.

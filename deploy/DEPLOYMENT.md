@@ -109,7 +109,7 @@ Both `.env.local` files and `CREDENTIALS.md` are gitignored — confirm with
 
 1. Push to GitHub.
 2. Render → **New** → **Blueprint** → choose the repo.
-3. Render reads `deploy/render.yaml` and creates both services
+3. Render reads `render.yaml` and creates both services
    (website from the repo root, studio from `admin/`).
 4. Fill in the `sync: false` variables it asks for.
 
