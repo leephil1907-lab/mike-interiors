@@ -1,6 +1,14 @@
 import Image from "next/image";
+import Link from "next/link";
+import type {Metadata} from "next";
+import {ArrowUpRight} from "lucide-react";
 import {PageIntro} from "@/components/page-intro";
-export const metadata={title:"Design Ideas",description:"Interior design concepts and finish inspiration from Mike Interiors in Abraka, Delta State."};
+
+export const metadata:Metadata={
+ title:"Design Ideas & Inspiration",
+ description:"Interior design concepts and finish inspiration from Mike Interiors in Abraka, Delta State — feature walls, ceilings, wardrobes and styling references.",
+ alternates:{canonical:"/design-ideas"}
+};
 const ideas=[
   {
     "title": "Kitchen in blue-grey gloss",
@@ -76,4 +84,4 @@ const ideas=[
   }
 ];
 const base="/images/projects/thumb/";
-export default function Ideas(){return <><PageIntro eyebrow="The inspiration edit" title={<>Ideas for living<br/>beautifully.</>} intro="Design references and concepts from the original Mike Interiors collection. These images are inspiration—not a claim that every pictured space is a completed client project."/><section className="section-pad"><div className="container"><div className="ideas-editorial-grid">{ideas.map((idea,index)=><article className={`ideas-editorial-card ideas-card-${index%4}`} key={idea.image}><div className="ideas-image-frame"><Image src={base+idea.image} alt={idea.alt} fill sizes="(max-width:700px) 100vw, 50vw" className="image-cover"/></div><div className="ideas-card-copy"><span className="eyebrow">INSPIRATION / {String(index+1).padStart(2,"0")}</span><h2 className="serif">{idea.title}</h2><p className="body-copy">{idea.description}</p></div></article>)}</div></div></section></>}
+export default function Ideas(){return <><PageIntro eyebrow="The inspiration edit" title={<>Ideas for living<br/>beautifully.</>} intro="Design references and concepts from the original Mike Interiors collection. These images are inspiration—not a claim that every pictured space is a completed client project."/><section className="section-pad"><div className="container"><div className="ideas-editorial-grid">{ideas.map((idea,index)=><article className={`ideas-editorial-card ideas-card-${index%4}`} key={idea.image}><div className="ideas-image-frame"><Image src={base+idea.image} alt={idea.alt} fill sizes="(max-width:700px) 100vw, 50vw" className="image-cover"/></div><div className="ideas-card-copy"><span className="eyebrow">INSPIRATION / {String(index+1).padStart(2,"0")}</span><h2 className="serif">{idea.title}</h2><p className="body-copy">{idea.description}</p><Link href={`/contact?idea=${encodeURIComponent(idea.title)}`} className="ideas-card-action">Discuss something like this <ArrowUpRight size={14}/></Link></div></article>)}</div></div></section></>}

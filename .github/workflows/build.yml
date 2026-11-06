@@ -12,5 +12,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - run: npm install
+      - run: npm ci
       - run: npm run build
+      - name: Build admin studio
+        working-directory: admin
+        run: npm ci && npm run build

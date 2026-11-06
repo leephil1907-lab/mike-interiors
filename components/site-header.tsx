@@ -74,7 +74,7 @@ export function SiteHeader() {
           </button>
           {dropdown === "explore" && <div className="nav-dropdown-panel explore-dropdown" id="explore-dropdown">{exploreLinks.map(([label, href]) => <Link key={href} href={href} onClick={() => setDropdown(null)}>{label}<ArrowUpRight size={14} /></Link>)}</div>}
         </div>
-        <Link href="/contact" className="nav-enquire" aria-current={pathname === "/contact" ? "page" : undefined}>Enquire <ArrowUpRight size={13} /></Link>
+        <Link href="/contact" className="nav-enquire" aria-current={pathname === "/contact" ? "page" : undefined}>Discuss your project <ArrowUpRight size={13} /></Link>
       </nav>
 
       <button className="mobile-menu" type="button" onClick={() => setOpen(!open)} aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} aria-controls="mobile-site-navigation">{open ? <X /> : <Menu />}</button>

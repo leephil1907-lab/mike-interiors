@@ -1,6 +1,35 @@
-node_modules
-.next
-out
-.env*
-!.env.example
+# dependencies
+node_modules/
+admin/node_modules/
+
+# build output
+.next/
+admin/.next/
+out/
+build/
+dist/
+
+# environment files — never commit
+.env
+.env.local
+.env*.local
+admin/.env
+admin/.env.local
+
+# secrets
+CREDENTIALS.md
+
+# next / typescript
+next-env.d.ts
+admin/next-env.d.ts
+*.tsbuildinfo
+
+# OS / editor
 .DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# logs
+npm-debug.log*
+yarn-error.log*

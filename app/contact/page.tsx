@@ -1,3 +1,23 @@
-"use client";
-import {useState} from "react";import {PageIntro} from "@/components/page-intro";import {ArrowUpRight,Check} from "lucide-react";
-export default function Contact(){const [sent,setSent]=useState(false);const [form,setForm]=useState({name:"",phone:"",email:"",type:"",budget:"",message:""});const update=(e:React.ChangeEvent<HTMLInputElement|HTMLTextAreaElement|HTMLSelectElement>)=>setForm({...form,[e.target.name]:e.target.value});const submit=(e:React.FormEvent)=>{e.preventDefault();const body=encodeURIComponent("Project enquiry\n\nName: "+form.name+"\nPhone: "+form.phone+"\nEmail: "+form.email+"\nProject: "+form.type+"\nBudget: "+form.budget+"\n\n"+form.message);window.location.href="mailto:?subject="+encodeURIComponent("New Mike Interiors project enquiry")+"&body="+body;setSent(true)};return <><PageIntro eyebrow="Start a conversation" title={<>Let's talk about<br/>your space.</>} intro="Tell us a little about what you have in mind. We would love to hear from you."/><section className="section-pad"><div className="container split"><div><span className="eyebrow">Contact details</span><h2 className="serif section-heading">We are here<br/>to help you begin.</h2><p className="body-copy">Abraka, Delta State, Nigeria</p><p style={{marginTop:22}}><a href="tel:+2347036206407" className="btn-line">+234 703 620 6407 <ArrowUpRight size={15}/></a></p><p><a href="https://wa.me/2347036206407" target="_blank" rel="noreferrer" className="btn-line">Chat on WhatsApp <ArrowUpRight size={15}/></a></p></div><form onSubmit={submit}><div className="form-grid"><div className="field"><label htmlFor="name">Your name</label><input id="name" name="name" required value={form.name} onChange={update} placeholder="Name"/></div><div className="field"><label htmlFor="phone">Phone number</label><input id="phone" name="phone" required value={form.phone} onChange={update} placeholder="Phone"/></div></div><div className="form-grid"><div className="field"><label htmlFor="email">Email address</label><input id="email" name="email" type="email" value={form.email} onChange={update} placeholder="Email"/></div><div className="field"><label htmlFor="type">Project type</label><select id="type" name="type" value={form.type} onChange={update}><option value="">Select a service</option>{["Painting & finishes","Wallpaper & wall panels","POP ceiling","TV console / feature wall","Blinds & window styling","Full interior styling","Other"].map(x=><option key={x}>{x}</option>)}</select></div></div><div className="field"><label htmlFor="budget">Estimated budget (optional)</label><input id="budget" name="budget" value={form.budget} onChange={update} placeholder="Your project budget"/></div><div className="field"><label htmlFor="message">Tell us about your project</label><textarea id="message" name="message" required value={form.message} onChange={update} placeholder="What would you like to create?"/></div><button className="btn-dark" type="submit">Prepare enquiry <ArrowUpRight size={15}/></button>{sent&&<p className="body-copy" role="status" style={{marginTop:16}}><Check size={15} style={{display:"inline"}}/> Your email app should open with your enquiry. If it does not, contact us on WhatsApp.</p>}<p style={{fontSize:11,color:"var(--muted)",marginTop:15}}>This form prepares an email on your device; it does not submit data to a server.</p></form></div></section></>}
+import type { Metadata } from "next";
+import { ContactForm } from "@/components/contact-form";
+import { getContent } from "@/lib/content";
+
+export const revalidate = 300;
+
+export const metadata: Metadata = {
+  title: "Contact & Enquiries",
+  description:
+    "Book a consultation with Mike Interiors in Abraka, Delta State. Tell us about your space and we'll discuss finishes, ceilings, feature walls and styling.",
+  alternates: { canonical: "/contact" }
+};
+
+export default async function Contact() {
+  const c = await getContent();
+  return (
+    <ContactForm
+      phone={c["site.phone"]}
+      phoneLink={c["site.phone_link"]}
+      whatsapp={c["site.whatsapp"]}
+    />
+  );
+}
