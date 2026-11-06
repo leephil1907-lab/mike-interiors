@@ -61,7 +61,7 @@ export function LoginForm() {
         />
       </label>
 
-      <button className="btn" style={{ width: "100%", justifyContent: "center" }} disabled={pending}>
+      <button type="submit" className="btn" style={{ width: "100%", justifyContent: "center" }} disabled={pending}>
         {pending ? "Signing in…" : "Sign in"}
       </button>
     </form>

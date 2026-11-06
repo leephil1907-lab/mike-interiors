@@ -25,10 +25,10 @@ export default async function Inbox({
 
   return (
     <>
-      <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: 20, marginBottom: 24, flexWrap: "wrap" }}>
+      <div className="page-head">
         <div>
-          <h1 style={{ fontSize: 32 }}>Enquiries</h1>
-          <p style={{ color: "var(--muted)", margin: "6px 0 0", fontSize: 14 }}>
+          <h1>Enquiries</h1>
+          <p className="page-sub">
             {enquiries?.length ?? 0} total · {unread} awaiting a reply
           </p>
         </div>

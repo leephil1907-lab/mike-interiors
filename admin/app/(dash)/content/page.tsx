@@ -30,10 +30,12 @@ export default async function ContentPage({
 
   return (
     <>
-      <h1 style={{ fontSize: 32, marginBottom: 6 }}>Site copy</h1>
-      <p style={{ color: "var(--muted)", margin: "0 0 26px", fontSize: 14 }}>
-        Edit the words on the website without touching code. Changes go live on save.
-      </p>
+      <div className="page-head" style={{ marginBottom: 20 }}>
+        <div>
+          <h1>Site copy</h1>
+          <p className="page-sub">Edit the words on the website without touching code. Changes go live on save.</p>
+        </div>
+      </div>
 
       {saved && <div className="banner banner-ok">Copy updated and published.</div>}
       {error && <div className="banner banner-err">{decodeURIComponent(error)}</div>}

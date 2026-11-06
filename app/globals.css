@@ -560,8 +560,6 @@ html{scroll-padding-top:96px}body{overflow-x:hidden}a,button{-webkit-tap-highlig
   .three-d-hero .three-d-card-label { max-width: 760px; left: clamp(70px, 8vw, 140px); bottom: clamp(100px, 13vh, 156px); }
   .three-d-hero .three-d-card-label h1 { font-size: clamp(82px, 7.1vw, 116px); max-width: 760px; }
   .three-d-hero .three-d-card-label p { max-width: 440px; font-size: 15px; line-height: 1.8; }
-  .three-d-hero .three-d-card-number { left: clamp(70px, 8vw, 140px); top: 48px; }
-  .three-d-hero-brand { right: var(--desktop-gutter); top: 42px; }
   .three-d-hero .three-d-arrow { width: 54px; height: 54px; }
   .home-gallery { padding-block: clamp(120px, 12vw, 184px); }
   .home-gallery .container,
@@ -781,29 +779,45 @@ html{scroll-padding-top:96px}body{overflow-x:hidden}a,button{-webkit-tap-highlig
 html,body{overflow-x:clip;max-width:100%}
 
 /* ═══════════════════════════════════════════════════════════════════════
-   HEADER / HERO ALIGNMENT FIX
+   HEADER / HERO ALIGNMENT
    The hero's overlay row (location · tagline · "Explore our work") and the
-   slide counter were pinned at 34–48px from the top. The site header is
-   76–104px tall, so all three collided and printed on top of each other.
-   Both now share one baseline that begins below the header.
+   slide counter were pinned 34–48px from the top, i.e. inside the 76–104px
+   site header, so all three printed on top of each other.
+
+   Now: both sit on one baseline BELOW the header, starting at the same left
+   gutter as the logo. The row reserves space on the right for the counter so
+   the two can never collide at any width.
    ═══════════════════════════════════════════════════════════════════════ */
-.three-d-showcase.three-d-hero { --hero-top-row: 108px; }        /* header 76px */
-.three-d-hero .three-d-hero-brand { top: var(--hero-top-row); }
-.three-d-hero .three-d-card-number { top: var(--hero-top-row); }
+.three-d-showcase.three-d-hero {
+  --hero-top-row: 108px;   /* header is 76px below 801px */
+  --hero-gutter: 22px;
+  --hero-counter-slot: 104px;  /* room reserved for "02 / 07" */
+}
+.three-d-hero .three-d-hero-brand {
+  top: var(--hero-top-row);
+  left: var(--hero-gutter);
+  right: calc(var(--hero-gutter) + var(--hero-counter-slot));
+  justify-content: flex-start;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.three-d-hero .three-d-card-number {
+  top: var(--hero-top-row);
+  left: auto;
+  right: var(--hero-gutter);
+}
 
 @media (min-width: 801px) {
-  .three-d-showcase.three-d-hero { --hero-top-row: 124px; }      /* header 92px */
+  .three-d-showcase.three-d-hero { --hero-top-row: 124px; --hero-gutter: 32px; }   /* header 92px */
 }
 @media (min-width: 1100px) {
-  .three-d-showcase.three-d-hero { --hero-top-row: 140px; }      /* header 104px */
-  /* the overlay row was also crowding the nav: give the link room */
+  .three-d-showcase.three-d-hero { --hero-top-row: 140px; --hero-gutter: var(--desktop-gutter); }  /* header 104px */
   .three-d-hero .three-d-hero-brand { gap: 26px; }
 }
-
-/* Keep the row out of the header's hit area on touch devices */
-@media (max-width: 800px) {
-  .three-d-hero .three-d-hero-brand { top: var(--hero-top-row); left: 22px; right: 22px; }
-  .three-d-hero .three-d-card-number { left: 22px; }
+/* Stack the row below 1100px: there is not enough width for the location,
+   tagline and link to sit on one line beside the counter. */
+@media (max-width: 1099px) {
+  .three-d-hero .three-d-hero-brand { flex-direction: column; align-items: flex-start; gap: 10px; }
 }
 
 /* ═══════════════════════════════════════════════════════════════════════

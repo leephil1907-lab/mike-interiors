@@ -19,12 +19,10 @@ export default async function ServicesPage({
 
   return (
     <>
-      <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: 20, marginBottom: 26 }}>
+      <div className="page-head">
         <div>
-          <h1 style={{ fontSize: 32 }}>Services</h1>
-          <p style={{ color: "var(--muted)", margin: "6px 0 0", fontSize: 14 }}>
-            These power the homepage grid and each service page.
-          </p>
+          <h1>Services</h1>
+          <p className="page-sub">These power the homepage grid and each service page.</p>
         </div>
         <Link className="btn" href="/services/new">New service</Link>
       </div>

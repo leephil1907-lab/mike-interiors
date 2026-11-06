@@ -22,11 +22,11 @@ export default async function Overview() {
 
   return (
     <>
-      <div style={{ marginBottom: 30 }}>
-        <h1 style={{ fontSize: 34 }}>Good morning, {admin.email.split("@")[0]}</h1>
-        <p style={{ color: "var(--muted)", margin: "8px 0 0" }}>
-          Everything you publish here appears on the live website straight away.
-        </p>
+      <div className="page-head" style={{ marginBottom: 28 }}>
+        <div>
+          <h1>Good morning, {admin.email.split("@")[0]}</h1>
+          <p className="page-sub">Everything you publish here appears on the live website straight away.</p>
+        </div>
       </div>
 
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(220px,1fr))", gap: 16, marginBottom: 34 }}>
